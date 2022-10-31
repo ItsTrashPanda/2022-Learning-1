@@ -5,19 +5,26 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class ADAM_SDrivetrain extends SubsystemBase {
-  private final PWMSparkMax leftMotor = new PWMSparkMax(0);
-  private final PWMSparkMax rightMotor = new PWMSparkMax(1);
+  private final CANSparkMax leftFront = new CANSparkMax(1, MotorType.kBrushless);
+  private final CANSparkMax leftBack = new CANSparkMax(2, MotorType.kBrushless);
+
+  private final CANSparkMax rightFront = new CANSparkMax(3, MotorType.kBrushless);
+  private final CANSparkMax rightBack = new CANSparkMax(4, MotorType.kBrushless);
 
   public ADAM_SDrivetrain() {
-    rightMotor.setInverted(true);
+    rightBack.setInverted(true);
+    rightFront.setInverted(true);
   }
 
   public void arcadeDrive(double y, double x) {
-    leftMotor.set(y+x);
-    rightMotor.set(y-x);
+    leftBack.set(y+x);
+    leftFront.set(y+x);
+    rightBack.set(y-x);
+    rightFront.set(y-x);
   }
 
 }
