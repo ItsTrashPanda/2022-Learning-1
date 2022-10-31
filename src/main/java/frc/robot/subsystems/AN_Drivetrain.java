@@ -5,16 +5,28 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
-public class ExampleSubsystem extends SubsystemBase {
+public class AN_Drivetrain extends SubsystemBase {
+
+  private PWMSparkMax leftMotor = new PWMSparkMax(0);
+  private PWMSparkMax rightMotor = new PWMSparkMax(1);
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public AN_Drivetrain() {
+    rightMotor.setInverted(true);
+
+  }
+
+  public void arcadeDrive(double y, double x)
+  {
+    leftMotor.set((y+x));
+    rightMotor.set(y-x);
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
-
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
