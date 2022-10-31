@@ -7,11 +7,11 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
-public class ADAM_Drivetrain extends SubsystemBase {
+public class ADAM_SDrivetrain extends SubsystemBase {
   private final PWMSparkMax leftMotor = new PWMSparkMax(0);
   private final PWMSparkMax rightMotor = new PWMSparkMax(1);
 
-  public ADAM_Drivetrain() {
+  public ADAM_SDrivetrain() {
     rightMotor.setInverted(true);
   }
 
