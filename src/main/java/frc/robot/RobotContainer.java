@@ -7,7 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ADAM_CDrivetrain;
+import frc.robot.commands.ADAM_CLauncher;
 import frc.robot.subsystems.ADAM_SDrivetrain;
+import frc.robot.subsystems.ADAM_SLauncher;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -19,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ADAM_SDrivetrain sDrivetrain = new ADAM_SDrivetrain();
+  private final ADAM_SLauncher sLauncher = new ADAM_SLauncher();
 
   private final XboxController xboxController = new XboxController(0);
 
@@ -27,6 +30,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     sDrivetrain.setDefaultCommand(new ADAM_CDrivetrain(sDrivetrain, xboxController.getRightX(), xboxController.getRightY()));
+    sLauncher.setDefaultCommand(new ADAM_CLauncher(sLauncher, xboxController.getRawAxis(3)));
   }
 
   /**
