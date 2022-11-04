@@ -6,11 +6,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+
 import frc.robot.commands.ADAM_CDrivetrain;
 import frc.robot.commands.ADAM_CLauncher;
 import frc.robot.subsystems.ADAM_SDrivetrain;
 import frc.robot.subsystems.ADAM_SLauncher;
-import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -20,8 +20,10 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+
   private final ADAM_SDrivetrain sDrivetrain = new ADAM_SDrivetrain();
   private final ADAM_SLauncher sLauncher = new ADAM_SLauncher();
+
 
   private final XboxController xboxController = new XboxController(0);
 
